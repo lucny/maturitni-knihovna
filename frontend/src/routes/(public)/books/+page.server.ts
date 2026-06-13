@@ -10,6 +10,7 @@ import type { PageServerLoad } from './$types';
 
 type BookCatalogItem = {
 	id: string;
+	slug: string;
 	title: string;
 	authorName: string;
 	literaryPeriodTitle?: string;
@@ -48,6 +49,7 @@ function createBookCatalogItem(
 
 	return {
 		id: book.id,
+		slug: book.slug,
 		title: book.title,
 		authorName: getAuthorName(authorsById.get(book.authorId)),
 		literaryPeriodTitle,
