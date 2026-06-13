@@ -1,0 +1,15 @@
+services:
+  pocketbase:
+    image: ${POCKETBASE_IMAGE:-ghcr.io/muchobien/pocketbase:latest}
+    container_name: ${COMPOSE_PROJECT_NAME:-maturitni-knihovna}-pocketbase
+    restart: unless-stopped
+    command:
+      - serve
+      - --http=0.0.0.0:8090
+      - --dir=/pb/pb_data
+      - --migrationsDir=/pb/pb_migrations
+    ports:
+      - "${POCKETBASE_HOST:-127.0.0.1}:${POCKETBASE_PORT:-8090}:8090"
+    volumes:
+      - ./pocketbase/pb_data:/pb/pb_data
+      - ./pocketbase/pb_migrations:/pb/pb_migrations
