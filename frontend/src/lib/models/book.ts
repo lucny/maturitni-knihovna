@@ -1,0 +1,32 @@
+export interface Book {
+	id: string;
+	title: string;
+	slug: string;
+	originalTitle?: string;
+	publicationYear?: number;
+	originalLanguage?: string;
+	isbn?: string;
+	authorId: string;
+	literaryPeriodId?: string;
+	genreIds: string[];
+	annotation?: string;
+	contentSummary?: string;
+	interpretation?: string;
+	historicalContext?: string;
+	themes?: string;
+	motifs?: string;
+	composition?: string;
+	narrator?: string;
+	timeSpace?: string;
+	languageFeatures?: string;
+	literaryFeatures?: string;
+	importance?: string;
+	examNotes?: string;
+	examQuestions?: string;
+	connections?: string;
+	cover?: string;
+	gallery: string[];
+	attachments: string[];
+	published: boolean;
+	publishedAt?: string;
+}
