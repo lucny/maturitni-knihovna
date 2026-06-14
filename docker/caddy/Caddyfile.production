@@ -1,0 +1,23 @@
+{
+	email {$TLS_CONTACT_EMAIL}
+}
+
+{$PUBLIC_APP_DOMAIN} {
+	encode zstd gzip
+
+	reverse_proxy frontend:5173 {
+		header_up Host {host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}
+
+{$PUBLIC_POCKETBASE_DOMAIN} {
+	encode zstd gzip
+
+	reverse_proxy pocketbase:8090 {
+		header_up Host {host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}

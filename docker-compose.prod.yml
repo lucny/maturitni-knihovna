@@ -1,0 +1,17 @@
+services:
+  reverse-proxy:
+    environment:
+      PUBLIC_APP_DOMAIN: ${PUBLIC_APP_DOMAIN:?Set PUBLIC_APP_DOMAIN}
+      PUBLIC_POCKETBASE_DOMAIN: ${PUBLIC_POCKETBASE_DOMAIN:?Set PUBLIC_POCKETBASE_DOMAIN}
+      TLS_CONTACT_EMAIL: ${TLS_CONTACT_EMAIL:?Set TLS_CONTACT_EMAIL}
+    ports:
+      - "${REVERSE_PROXY_HTTPS_HOST:-0.0.0.0}:${REVERSE_PROXY_HTTPS_PORT:-443}:443"
+    volumes:
+      - ./docker/caddy/Caddyfile.production:/etc/caddy/Caddyfile:ro
+
+  frontend:
+    environment:
+      PUBLIC_APP_URL: https://${PUBLIC_APP_DOMAIN:?Set PUBLIC_APP_DOMAIN}
+      PUBLIC_POCKETBASE_URL: https://${PUBLIC_POCKETBASE_DOMAIN:?Set PUBLIC_POCKETBASE_DOMAIN}
+      POCKETBASE_URL: http://pocketbase:8090
+      ORIGIN: https://${PUBLIC_APP_DOMAIN:?Set PUBLIC_APP_DOMAIN}
