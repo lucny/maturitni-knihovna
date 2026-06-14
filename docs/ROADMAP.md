@@ -782,7 +782,7 @@ release: version 1.0
 
 # Verze 2.0
 
-Plánovaná rozšíření:
+Plánovaná rozšíření: 
 
 * čtenářský deník
 * maturitní testy
