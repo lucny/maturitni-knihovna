@@ -1,6 +1,7 @@
-import type { Handle } from '@sveltejs/kit';
+import { redirect, type Handle } from '@sveltejs/kit';
 
 import { mapAuthRecord } from '$lib/server/auth/pocketbase-auth';
+import { evaluateRouteAccess } from '$lib/server/auth/route-guard';
 import { createServerPocketBaseClient } from '$lib/server/api/pocketbase.server';
 
 function createAuthCookieOptions(url: URL): {
@@ -30,6 +31,16 @@ export const handle: Handle = async ({ event, resolve }) => {
 	}
 
 	event.locals.user = mapAuthRecord(event.locals.pb.authStore.record);
+
+	const routeAccess = evaluateRouteAccess(event.url.pathname, event.locals.user);
+
+	if (!routeAccess.allowed) {
+		if (routeAccess.reason === 'unauthenticated') {
+			throw redirect(303, '/login');
+		}
+
+		throw redirect(303, '/403');
+	}
 
 	const response = await resolve(event);
 
