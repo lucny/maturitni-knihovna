@@ -119,3 +119,25 @@ docker compose ps
 curl http://localhost/health
 curl http://127.0.0.1:8090/api/health
 ```
+
+## Automatizovane testy
+
+Frontend pouziva Vitest pro izolovane unit testy aplikacni logiky. Testy
+nevyzaduji produkcni secrets, Microsoft Entra ID ani realna PocketBase data.
+
+Spusteni:
+
+```bash
+cd frontend
+npm run test
+```
+
+Zakladni overeni pred commitem:
+
+```bash
+cd frontend
+npm run check
+npm run lint
+npm run test
+npm run build
+```
