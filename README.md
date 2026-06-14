@@ -71,3 +71,24 @@ curl -I https://library.example.com
 curl https://pb.library.example.com/api/health
 docker compose logs reverse-proxy
 ```
+
+## PocketBase zalohy
+
+Zalohy PocketBase se ukladaji do lokalni slozky `backups/`, ktera je ignorovana
+Gitem. Archiv obsahuje `pocketbase/pb_data`, `pocketbase/pb_migrations` a
+manifest.
+
+Rucni zaloha:
+
+```bash
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\backup\backup-pocketbase.ps1
+```
+
+Obnova prepisuje aktualni PocketBase data. Skript pred prepisem vytvori
+bezpecnostni kopii aktualniho stavu do `backups/pre-restore-<timestamp>/`.
+
+```bash
+powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\backup\restore-pocketbase.ps1 -ArchivePath .\backups\pocketbase-backup-YYYYMMDD-HHMMSS.zip -ForceRestore
+```
+
+Podrobny postup je v `scripts/backup/README.md`.
