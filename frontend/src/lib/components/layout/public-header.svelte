@@ -4,7 +4,7 @@
 	import type { CurrentUser } from '$lib/auth/user';
 
 	type NavigationItem = {
-		href: '/' | '/books' | '/authors' | '/periods' | '/about';
+		href: '/' | '/books' | '/authors' | '/periods' | '/materials' | '/about';
 		label: string;
 	};
 
@@ -15,6 +15,7 @@
 		{ href: '/books', label: 'Knihy' },
 		{ href: '/authors', label: 'Autori' },
 		{ href: '/periods', label: 'Obdobi' },
+		{ href: '/materials', label: 'Materialy' },
 		{ href: '/about', label: 'O projektu' }
 	];
 </script>

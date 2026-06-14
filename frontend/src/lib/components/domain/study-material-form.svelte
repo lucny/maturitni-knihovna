@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
 	import type { Author } from '$lib/models/author';
 	import type { Book } from '$lib/models/book';
 	import { STUDY_MATERIAL_TYPES } from '$lib/models/study-material';
@@ -11,6 +13,8 @@
 		action,
 		authors,
 		books,
+		currentAttachmentName,
+		currentAttachmentUrl,
 		errors,
 		submitLabel,
 		values
@@ -18,6 +22,8 @@
 		action: string;
 		authors: Author[];
 		books: Book[];
+		currentAttachmentName?: string;
+		currentAttachmentUrl?: string;
 		errors: StudyMaterialFormErrors;
 		submitLabel: string;
 		values: StudyMaterialFormValues;
@@ -27,6 +33,7 @@
 <form
 	method="POST"
 	{action}
+	enctype="multipart/form-data"
 	class="max-w-3xl space-y-5 rounded-lg border border-slate-200 bg-white p-5 shadow-sm"
 >
 	<div class="space-y-2">
@@ -170,6 +177,48 @@
 		>
 		{#if errors.content}
 			<p class="text-sm text-red-700">{errors.content}</p>
+		{/if}
+	</div>
+
+	<div class="space-y-3 rounded-lg border border-slate-200 bg-slate-50 p-4">
+		<div class="space-y-1">
+			<label for="attachment" class="text-sm font-medium text-slate-700">Priloha</label>
+			<p class="text-sm leading-6 text-slate-600">
+				Povolene formaty: PDF, DOCX, PPTX, JPG, PNG a WEBP. Maximalni velikost je 25 MB.
+			</p>
+		</div>
+
+		{#if currentAttachmentName && currentAttachmentUrl}
+			<div class="rounded-lg border border-slate-200 bg-white p-3 text-sm text-slate-700">
+				<p class="font-medium text-slate-950">Aktualni priloha</p>
+				<a
+					href={resolve(currentAttachmentUrl as '/')}
+					target="_blank"
+					rel="noreferrer"
+					class="mt-1 inline-flex text-[var(--color-primary)] hover:underline"
+				>
+					{currentAttachmentName}
+				</a>
+				<label class="mt-3 flex items-center gap-2 text-sm font-medium text-slate-700">
+					<input
+						name="removeAttachment"
+						type="checkbox"
+						class="h-4 w-4 rounded border-slate-300 text-[var(--color-primary)] focus:ring-[var(--color-primary)]"
+					/>
+					Odstranit prilohu pri ulozeni
+				</label>
+			</div>
+		{/if}
+
+		<input
+			id="attachment"
+			name="attachment"
+			type="file"
+			accept=".pdf,.docx,.pptx,.jpg,.jpeg,.png,.webp,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/vnd.openxmlformats-officedocument.presentationml.presentation,image/jpeg,image/png,image/webp"
+			class="block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-950 file:mr-4 file:rounded-md file:border-0 file:bg-slate-100 file:px-3 file:py-2 file:text-sm file:font-medium file:text-slate-700 hover:file:bg-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-primary)] focus:outline-none"
+		/>
+		{#if errors.attachment}
+			<p class="text-sm text-red-700">{errors.attachment}</p>
 		{/if}
 	</div>
 

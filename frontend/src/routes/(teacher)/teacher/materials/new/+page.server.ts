@@ -44,7 +44,10 @@ export const actions: Actions = {
 		const studyMaterialRepository = new PocketBaseStudyMaterialRepository(locals.pb);
 
 		try {
-			const material = await studyMaterialRepository.create(validation.data);
+			const material = await studyMaterialRepository.create(
+				validation.data.material,
+				validation.data.attachment
+			);
 
 			throw redirect(303, `/teacher/materials/${material.id}`);
 		} catch (caughtError) {
@@ -53,7 +56,7 @@ export const actions: Actions = {
 			}
 
 			return fail(500, {
-				values: validation.data,
+				values: validation.data.material,
 				errors: {},
 				message: 'Material se nepodarilo vytvorit.'
 			});

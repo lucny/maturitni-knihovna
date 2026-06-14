@@ -20,7 +20,7 @@ export class PocketBaseStudyMaterialRepository implements StudyMaterialRepositor
 			.collection<StudyMaterialRecord>('study_materials')
 			.getFullList({ sort: '-updated' });
 
-		return records.map(mapStudyMaterialRecord);
+		return records.map((record) => this.mapRecord(record));
 	}
 
 	async getPublished(): Promise<StudyMaterial[]> {
@@ -28,7 +28,7 @@ export class PocketBaseStudyMaterialRepository implements StudyMaterialRepositor
 			.collection<StudyMaterialRecord>('study_materials')
 			.getFullList({ filter: 'published = true', sort: '-updated' });
 
-		return records.map(mapStudyMaterialRecord);
+		return records.map((record) => this.mapRecord(record));
 	}
 
 	async getById(id: string): Promise<StudyMaterial> {
@@ -36,23 +36,37 @@ export class PocketBaseStudyMaterialRepository implements StudyMaterialRepositor
 			.collection<StudyMaterialRecord>('study_materials')
 			.getOne(id);
 
-		return mapStudyMaterialRecord(record);
+		return this.mapRecord(record);
 	}
 
-	async create(data: StudyMaterialCreateData): Promise<StudyMaterial> {
+	async create(data: StudyMaterialCreateData, attachment?: File): Promise<StudyMaterial> {
 		const record = await this.pocketBase
 			.collection<StudyMaterialRecord>('study_materials')
-			.create(toPocketBaseData(data));
+			.create(toPocketBaseFormData(data, attachment));
 
-		return mapStudyMaterialRecord(record);
+		return this.mapRecord(record);
 	}
 
-	async update(id: string, data: StudyMaterialUpdateData): Promise<StudyMaterial> {
+	async update(
+		id: string,
+		data: StudyMaterialUpdateData,
+		attachment?: File
+	): Promise<StudyMaterial> {
 		const record = await this.pocketBase
 			.collection<StudyMaterialRecord>('study_materials')
-			.update(id, toPocketBaseData(data));
+			.update(id, toPocketBaseFormData(data, attachment));
 
-		return mapStudyMaterialRecord(record);
+		return this.mapRecord(record);
+	}
+
+	async removeAttachment(id: string): Promise<StudyMaterial> {
+		const record = await this.pocketBase
+			.collection<StudyMaterialRecord>('study_materials')
+			.update(id, {
+				attachment: null
+			});
+
+		return this.mapRecord(record);
 	}
 
 	async setPublished(id: string, published: boolean): Promise<StudyMaterial> {
@@ -62,19 +76,41 @@ export class PocketBaseStudyMaterialRepository implements StudyMaterialRepositor
 				published
 			});
 
-		return mapStudyMaterialRecord(record);
+		return this.mapRecord(record);
+	}
+
+	private mapRecord(record: StudyMaterialRecord): StudyMaterial {
+		const material = mapStudyMaterialRecord(record);
+
+		if (!material.attachment) {
+			return material;
+		}
+
+		return {
+			...material,
+			attachmentUrl: this.pocketBase.files.getURL(record, material.attachment)
+		};
 	}
 }
 
-function toPocketBaseData(data: StudyMaterialCreateData | StudyMaterialUpdateData) {
-	return {
-		title: data.title,
-		slug: data.slug,
-		description: data.description,
-		material_type: data.materialType,
-		content: data.content,
-		book: data.bookId,
-		author: data.authorId,
-		published: data.published
-	};
+function toPocketBaseFormData(
+	data: StudyMaterialCreateData | StudyMaterialUpdateData,
+	attachment?: File
+): FormData {
+	const formData = new FormData();
+
+	formData.set('title', data.title);
+	formData.set('slug', data.slug);
+	formData.set('description', data.description ?? '');
+	formData.set('material_type', data.materialType);
+	formData.set('content', data.content ?? '');
+	formData.set('book', data.bookId ?? '');
+	formData.set('author', data.authorId ?? '');
+	formData.set('published', data.published ? 'true' : 'false');
+
+	if (attachment) {
+		formData.set('attachment', attachment);
+	}
+
+	return formData;
 }

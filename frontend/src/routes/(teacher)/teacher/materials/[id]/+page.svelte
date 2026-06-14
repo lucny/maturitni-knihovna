@@ -56,6 +56,8 @@
 		action="?/update"
 		authors={data.authors}
 		books={data.books}
+		currentAttachmentName={data.material.attachment}
+		currentAttachmentUrl={data.material.attachmentUrl}
 		{errors}
 		submitLabel="Ulozit material"
 		{values}

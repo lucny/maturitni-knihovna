@@ -50,6 +50,7 @@
 					<tr>
 						<th class="px-4 py-3 font-medium">Nazev</th>
 						<th class="px-4 py-3 font-medium">Typ</th>
+						<th class="px-4 py-3 font-medium">Priloha</th>
 						<th class="px-4 py-3 font-medium">Stav</th>
 						<th class="px-4 py-3 font-medium">Akce</th>
 					</tr>
@@ -66,6 +67,20 @@
 								</a>
 							</td>
 							<td class="px-4 py-3 text-slate-700">{material.materialType}</td>
+							<td class="px-4 py-3 text-slate-700">
+								{#if material.attachment && material.attachmentUrl}
+									<a
+										href={resolve(material.attachmentUrl as '/')}
+										target="_blank"
+										rel="noreferrer"
+										class="font-medium text-[var(--color-primary)] hover:underline"
+									>
+										Stahnout
+									</a>
+								{:else}
+									<span class="text-slate-500">Bez prilohy</span>
+								{/if}
+							</td>
 							<td class="px-4 py-3 text-slate-700">
 								{material.published ? 'Publikovano' : 'Nepublikovano'}
 							</td>

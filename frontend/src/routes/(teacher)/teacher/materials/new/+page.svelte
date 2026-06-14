@@ -45,6 +45,8 @@
 		action="?/create"
 		authors={data.authors}
 		books={data.books}
+		currentAttachmentName={undefined}
+		currentAttachmentUrl={undefined}
 		{errors}
 		submitLabel="Vytvorit material"
 		{values}

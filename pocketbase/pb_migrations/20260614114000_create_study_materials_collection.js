@@ -45,7 +45,10 @@ migrate((app) => {
 				mimeTypes: [
 					'application/pdf',
 					'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-					'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+					'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+					'image/jpeg',
+					'image/png',
+					'image/webp'
 				]
 			},
 			{ name: 'published', type: 'bool' },

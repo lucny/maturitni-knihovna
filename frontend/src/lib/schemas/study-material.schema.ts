@@ -1,6 +1,9 @@
 import { z } from 'zod';
 
 import {
+	STUDY_MATERIAL_ATTACHMENT_EXTENSIONS,
+	STUDY_MATERIAL_ATTACHMENT_MAX_SIZE,
+	STUDY_MATERIAL_ATTACHMENT_MIME_TYPES,
 	STUDY_MATERIAL_TYPES,
 	type StudyMaterialCreateData,
 	type StudyMaterialType
@@ -52,12 +55,20 @@ export type StudyMaterialFormValues = {
 	authorId?: string;
 	published: boolean;
 };
-export type StudyMaterialFormErrors = Partial<Record<keyof StudyMaterialFormValues, string>>;
+export type StudyMaterialFormErrors = Partial<
+	Record<keyof StudyMaterialFormValues | 'attachment', string>
+>;
+
+export type StudyMaterialFormPayload = {
+	material: StudyMaterialCreateData;
+	attachment?: File;
+	removeAttachment: boolean;
+};
 
 export type StudyMaterialFormValidationResult =
 	| {
 			success: true;
-			data: StudyMaterialCreateData;
+			data: StudyMaterialFormPayload;
 	  }
 	| {
 			success: false;
@@ -79,6 +90,8 @@ export function createEmptyStudyMaterialFormValues(): StudyMaterialFormValues {
 }
 
 export function validateStudyMaterialForm(formData: FormData): StudyMaterialFormValidationResult {
+	const attachment = getAttachmentFile(formData);
+	const attachmentError = validateAttachmentFile(attachment);
 	const values: StudyMaterialFormValues = {
 		title: String(formData.get('title') ?? ''),
 		slug: String(formData.get('slug') ?? '') || undefined,
@@ -92,38 +105,102 @@ export function validateStudyMaterialForm(formData: FormData): StudyMaterialForm
 
 	const result = studyMaterialFormSchema.safeParse(values);
 
-	if (result.success) {
+	if (result.success && !attachmentError) {
 		return {
 			success: true,
 			data: {
-				...result.data,
-				slug: result.data.slug ?? createSlug(result.data.title)
+				material: {
+					...result.data,
+					slug: result.data.slug ?? createSlug(result.data.title)
+				},
+				attachment,
+				removeAttachment: formData.get('removeAttachment') === 'on'
 			}
 		};
+	}
+
+	const errors = result.success
+		? {}
+		: result.error.issues.reduce<StudyMaterialFormErrors>((validationErrors, issue) => {
+				const fieldName = issue.path[0];
+
+				if (
+					fieldName === 'title' ||
+					fieldName === 'slug' ||
+					fieldName === 'description' ||
+					fieldName === 'materialType' ||
+					fieldName === 'content' ||
+					fieldName === 'bookId' ||
+					fieldName === 'authorId' ||
+					fieldName === 'published'
+				) {
+					validationErrors[fieldName] = issue.message;
+				}
+
+				return validationErrors;
+			}, {});
+
+	if (attachmentError) {
+		errors.attachment = attachmentError;
 	}
 
 	return {
 		success: false,
 		values,
-		errors: result.error.issues.reduce<StudyMaterialFormErrors>((errors, issue) => {
-			const fieldName = issue.path[0];
-
-			if (
-				fieldName === 'title' ||
-				fieldName === 'slug' ||
-				fieldName === 'description' ||
-				fieldName === 'materialType' ||
-				fieldName === 'content' ||
-				fieldName === 'bookId' ||
-				fieldName === 'authorId' ||
-				fieldName === 'published'
-			) {
-				errors[fieldName] = issue.message;
-			}
-
-			return errors;
-		}, {})
+		errors
 	};
+}
+
+function getAttachmentFile(formData: FormData): File | undefined {
+	const value = formData.get('attachment');
+
+	if (!(value instanceof File) || value.size === 0 || value.name.length === 0) {
+		return undefined;
+	}
+
+	return value;
+}
+
+function validateAttachmentFile(file: File | undefined): string | undefined {
+	if (!file) {
+		return undefined;
+	}
+
+	if (file.size > STUDY_MATERIAL_ATTACHMENT_MAX_SIZE) {
+		return 'Soubor je prilis velky. Maximalni velikost prilohy je 25 MB.';
+	}
+
+	const allowedMimeTypes: readonly string[] = STUDY_MATERIAL_ATTACHMENT_MIME_TYPES;
+
+	if (!allowedMimeTypes.includes(file.type)) {
+		return 'Nepodporovany typ souboru. Povolen je PDF, DOCX, PPTX, JPG, PNG nebo WEBP.';
+	}
+
+	const extension = getFileExtension(file.name);
+
+	if (!extension || !STUDY_MATERIAL_ATTACHMENT_EXTENSIONS.includes(extension)) {
+		return 'Nepodporovana pripona souboru. Povolen je PDF, DOCX, PPTX, JPG, PNG nebo WEBP.';
+	}
+
+	return undefined;
+}
+
+function getFileExtension(fileName: string) {
+	const extension = fileName.split('.').pop()?.toLowerCase();
+
+	if (
+		extension === 'pdf' ||
+		extension === 'docx' ||
+		extension === 'pptx' ||
+		extension === 'jpg' ||
+		extension === 'jpeg' ||
+		extension === 'png' ||
+		extension === 'webp'
+	) {
+		return extension;
+	}
+
+	return undefined;
 }
 
 function normalizeMaterialType(value: FormDataEntryValue | null): StudyMaterialType {

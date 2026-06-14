@@ -74,17 +74,25 @@ export const actions: Actions = {
 		const studyMaterialRepository = new PocketBaseStudyMaterialRepository(locals.pb);
 
 		try {
-			await studyMaterialRepository.update(materialId, validation.data);
+			await studyMaterialRepository.update(
+				materialId,
+				validation.data.material,
+				validation.data.attachment
+			);
+
+			if (validation.data.removeAttachment && !validation.data.attachment) {
+				await studyMaterialRepository.removeAttachment(materialId);
+			}
 		} catch {
 			return fail(500, {
-				values: validation.data,
+				values: validation.data.material,
 				errors: {},
 				message: 'Material se nepodarilo ulozit.'
 			});
 		}
 
 		return {
-			values: validation.data,
+			values: validation.data.material,
 			errors: {},
 			message: 'Material byl ulozen.'
 		};
