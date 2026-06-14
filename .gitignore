@@ -1,2 +1,4 @@
 .opencode
 backups/
+pocketbase/pb_data/*.db-shm
+pocketbase/pb_data/*.db-wal

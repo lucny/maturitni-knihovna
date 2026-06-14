@@ -92,3 +92,30 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\backup\restore-poc
 ```
 
 Podrobny postup je v `scripts/backup/README.md`.
+
+## Zakladni monitoring
+
+SvelteKit poskytuje health endpoint:
+
+```bash
+curl http://localhost/health
+```
+
+Odpoved obsahuje `status`, `timestamp`, `app`, `version` a stav dostupnosti
+PocketBase. Pokud PocketBase neni dostupny, endpoint vrati stav `degraded`
+a HTTP status `503`.
+
+Docker Compose obsahuje healthchecky pro:
+
+- `frontend` pres `http://127.0.0.1:5173/health`
+- `pocketbase` pres `http://127.0.0.1:8090/api/health`
+- `reverse-proxy` pres `http://localhost/health`
+
+Overeni:
+
+```bash
+docker compose config
+docker compose ps
+curl http://localhost/health
+curl http://127.0.0.1:8090/api/health
+```
