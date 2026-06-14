@@ -13,8 +13,8 @@
 		},
 		{
 			label: 'Poznamky',
-			value: 'Pripraveno',
-			description: 'Osobni poznamky budou dostupne po vytvoreni odpovidajici kolekce.'
+			value: 'Dostupne',
+			description: 'Osobni poznamky muzete vytvaret a upravovat ve studentske casti.'
 		},
 		{
 			label: 'Nedavna aktivita',
@@ -52,7 +52,7 @@
 		{/each}
 	</div>
 
-	<div class="grid gap-4 md:grid-cols-2">
+	<div class="grid gap-4 md:grid-cols-3">
 		<a
 			href={resolve('/student/books')}
 			class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition-colors hover:border-[var(--color-primary)]"
@@ -73,6 +73,15 @@
 			<p class="mt-2 text-sm leading-6 text-slate-600">
 				Zakladni informace o prihlasenem uzivateli.
 			</p>
+		</a>
+
+		<a
+			href={resolve('/student/notes')}
+			class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition-colors hover:border-[var(--color-primary)]"
+		>
+			<p class="text-sm font-medium text-slate-600">Rychly odkaz</p>
+			<h2 class="mt-2 text-xl font-semibold text-slate-950">Poznamky</h2>
+			<p class="mt-2 text-sm leading-6 text-slate-600">Soukrome poznamky svazane s vasim uctem.</p>
 		</a>
 	</div>
 </section>

@@ -1,8 +1,8 @@
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
-ch file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
-ng `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
-Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
+ch file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
+ `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
 Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
 Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
 Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
@@ -13,3 +13,5 @@ Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` 
     at Array.map (<anonymous>)
     at _hydrate (http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=bebb3aa4:2975:36)
     at async Module.start (http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=bebb3aa4:399:3)
+Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
+Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead

@@ -5,7 +5,7 @@
 	import type { CurrentUser } from '$lib/auth/user';
 
 	type StudentNavigationItem = {
-		href: '/student' | '/student/books' | '/profile';
+		href: '/student' | '/student/books' | '/student/notes' | '/profile';
 		label: string;
 	};
 
@@ -14,6 +14,7 @@
 	const navigationItems: StudentNavigationItem[] = [
 		{ href: '/student', label: 'Prehled' },
 		{ href: '/student/books', label: 'Moje knihy' },
+		{ href: '/student/notes', label: 'Poznamky' },
 		{ href: '/profile', label: 'Profil' }
 	];
 </script>
