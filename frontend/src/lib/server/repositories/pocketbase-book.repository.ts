@@ -24,6 +24,24 @@ export class PocketBaseBookRepository implements BookRepository {
 		return records.map(mapBookRecord);
 	}
 
+	async search(query: string, limit = 10): Promise<Book[]> {
+		const normalizedQuery = query.trim();
+
+		if (!normalizedQuery) {
+			return [];
+		}
+
+		const records = await this.pocketBase.collection<BookRecord>('books').getList(1, limit, {
+			filter: this.pocketBase.filter(
+				'published = true && (title ~ {:query} || original_title ~ {:query})',
+				{ query: normalizedQuery }
+			),
+			sort: 'title'
+		});
+
+		return records.items.map(mapBookRecord);
+	}
+
 	async getById(id: string): Promise<Book> {
 		const record = await this.pocketBase.collection<BookRecord>('books').getOne(id);
 

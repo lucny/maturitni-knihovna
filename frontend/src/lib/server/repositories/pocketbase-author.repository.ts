@@ -16,6 +16,23 @@ export class PocketBaseAuthorRepository implements AuthorRepository {
 		return records.map(mapAuthorRecord);
 	}
 
+	async search(query: string, limit = 10): Promise<Author[]> {
+		const normalizedQuery = query.trim();
+
+		if (!normalizedQuery) {
+			return [];
+		}
+
+		const records = await this.pocketBase.collection<AuthorRecord>('authors').getList(1, limit, {
+			filter: this.pocketBase.filter('first_name ~ {:query} || last_name ~ {:query}', {
+				query: normalizedQuery
+			}),
+			sort: 'last_name,first_name'
+		});
+
+		return records.items.map(mapAuthorRecord);
+	}
+
 	async getById(id: string): Promise<Author> {
 		const record = await this.pocketBase.collection<AuthorRecord>('authors').getOne(id);
 
