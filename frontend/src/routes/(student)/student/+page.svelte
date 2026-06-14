@@ -8,8 +8,8 @@
 	const dashboardCards = [
 		{
 			label: 'Oblibene knihy',
-			value: 'Pripraveno',
-			description: 'Funkcni seznam oblibenych knih bude doplnen v dalsi fazi.'
+			value: 'Dostupne',
+			description: 'Oblibene knihy muzete spravovat ze studentske casti a detailu knihy.'
 		},
 		{
 			label: 'Poznamky',

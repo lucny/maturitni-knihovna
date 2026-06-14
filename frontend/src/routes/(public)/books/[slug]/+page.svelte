@@ -1,7 +1,10 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
+
+	import type { ActionData } from './$types';
 	import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
+	let { data, form }: { data: PageData; form: ActionData | undefined } = $props();
 </script>
 
 <svelte:head>
@@ -74,6 +77,45 @@
 				<p class="text-sm font-medium text-[var(--color-primary)]">Detail knihy</p>
 				<h1 class="mt-3 text-4xl font-bold text-[var(--color-secondary)]">{data.book.title}</h1>
 				<p class="mt-4 text-base leading-7 text-slate-700">{data.book.authorName}</p>
+
+				<div class="mt-6">
+					{#if form?.message}
+						<div
+							class="mb-4 rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700"
+						>
+							{form.message}
+						</div>
+					{/if}
+
+					{#if data.book.canManageFavorite}
+						{#if data.book.isFavorite}
+							<form method="POST" action="?/removeFavorite">
+								<button
+									type="submit"
+									class="rounded-lg border border-red-200 px-4 py-2 text-sm font-medium text-red-700 transition-colors hover:bg-red-50 focus:ring-2 focus:ring-red-600 focus:ring-offset-2 focus:outline-none"
+								>
+									Odebrat z oblibenych
+								</button>
+							</form>
+						{:else}
+							<form method="POST" action="?/addFavorite">
+								<button
+									type="submit"
+									class="rounded-lg bg-[var(--color-primary)] px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-800 focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 focus:outline-none"
+								>
+									Pridat do oblibenych
+								</button>
+							</form>
+						{/if}
+					{:else}
+						<a
+							href={resolve('/login')}
+							class="inline-flex rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:outline-none"
+						>
+							Prihlasit se pro ulozeni do oblibenych
+						</a>
+					{/if}
+				</div>
 
 				{#if data.book.genreTitles.length > 0}
 					<div class="mt-6 flex flex-wrap gap-2">
