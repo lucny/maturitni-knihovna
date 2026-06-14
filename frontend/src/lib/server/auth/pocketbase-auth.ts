@@ -1,6 +1,6 @@
 import type { AuthProviderInfo, RecordModel } from 'pocketbase';
 
-import type { AuthUser, UserAuthRecord } from '$lib/auth/user';
+import { createCurrentUser, type CurrentUser, type UserAuthRecord } from '$lib/auth/user';
 
 export const AUTH_COLLECTION = 'users';
 export const MICROSOFT_AUTH_PROVIDER = 'microsoft';
@@ -14,23 +14,14 @@ export type OAuthProviderCookie = {
 	redirectUrl: string;
 };
 
-export function mapAuthRecord(record: RecordModel | null): AuthUser | null {
+export function mapAuthRecord(record: RecordModel | null): CurrentUser | null {
 	if (!record) {
 		return null;
 	}
 
 	const userRecord = record as UserAuthRecord;
 
-	return {
-		id: userRecord.id,
-		email: userRecord.email,
-		name: userRecord.name,
-		surname: userRecord.surname,
-		avatar: userRecord.avatar,
-		role: userRecord.role,
-		provider: userRecord.provider,
-		active: userRecord.active
-	};
+	return createCurrentUser(userRecord);
 }
 
 export function createOAuthRedirectUrl(url: URL): string {

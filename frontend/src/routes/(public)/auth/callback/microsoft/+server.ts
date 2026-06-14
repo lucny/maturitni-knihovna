@@ -1,5 +1,6 @@
 import { redirect, type RequestHandler } from '@sveltejs/kit';
 
+import { USER_ROLES } from '$lib/auth/roles';
 import {
 	AUTH_COLLECTION,
 	MICROSOFT_AUTH_PROVIDER,
@@ -45,8 +46,8 @@ export const GET: RequestHandler = async ({ cookies, locals, url }) => {
 				{
 					name: 'Microsoft 365',
 					surname: 'Uzivatel',
-					role: 'student',
-					provider: 'microsoft',
+					role: USER_ROLES.STUDENT,
+					provider: MICROSOFT_AUTH_PROVIDER,
 					active: true
 				}
 			);

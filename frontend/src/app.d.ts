@@ -2,14 +2,14 @@
 // for information about these interfaces
 import type PocketBase from 'pocketbase';
 
-import type { AuthUser } from '$lib/auth/user';
+import type { CurrentUser } from '$lib/auth/user';
 
 declare global {
 	namespace App {
 		// interface Error {}
 		interface Locals {
 			pb: PocketBase;
-			user: AuthUser | null;
+			user: CurrentUser | null;
 		}
 		// interface PageData {}
 		// interface PageState {}

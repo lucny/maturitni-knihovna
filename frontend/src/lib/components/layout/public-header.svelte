@@ -1,14 +1,14 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 
-	import { getAuthUserDisplayName, type AuthUser } from '$lib/auth/user';
+	import type { CurrentUser } from '$lib/auth/user';
 
 	type NavigationItem = {
 		href: '/' | '/books' | '/authors' | '/periods' | '/about';
 		label: string;
 	};
 
-	let { user }: { user: AuthUser | null } = $props();
+	let { user }: { user: CurrentUser | null } = $props();
 
 	const navigationItems: NavigationItem[] = [
 		{ href: '/', label: 'Domu' },
@@ -60,7 +60,7 @@
 			{#if user}
 				<div class="flex items-center gap-2">
 					<span class="max-w-44 truncate text-sm font-medium text-slate-700">
-						{getAuthUserDisplayName(user)}
+						{user.displayName}
 					</span>
 					<form action={resolve('/logout')} method="POST">
 						<button
