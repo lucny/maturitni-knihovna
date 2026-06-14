@@ -1,10 +1,14 @@
 <script lang="ts">
 	import { resolve } from '$app/paths';
 
+	import { getAuthUserDisplayName, type AuthUser } from '$lib/auth/user';
+
 	type NavigationItem = {
 		href: '/' | '/books' | '/authors' | '/periods' | '/about';
 		label: string;
 	};
+
+	let { user }: { user: AuthUser | null } = $props();
 
 	const navigationItems: NavigationItem[] = [
 		{ href: '/', label: 'Domu' },
@@ -52,6 +56,29 @@
 					Hledat
 				</button>
 			</form>
+
+			{#if user}
+				<div class="flex items-center gap-2">
+					<span class="max-w-44 truncate text-sm font-medium text-slate-700">
+						{getAuthUserDisplayName(user)}
+					</span>
+					<form action={resolve('/logout')} method="POST">
+						<button
+							type="submit"
+							class="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium whitespace-nowrap text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 focus:outline-none"
+						>
+							Odhlasit
+						</button>
+					</form>
+				</div>
+			{:else}
+				<a
+					href={resolve('/login')}
+					class="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium whitespace-nowrap text-slate-700 transition-colors hover:border-slate-400 hover:bg-slate-50 focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 focus-visible:outline-none"
+				>
+					Prihlaseni
+				</a>
+			{/if}
 		</div>
 	</div>
 </header>
