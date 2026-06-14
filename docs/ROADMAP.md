@@ -793,4 +793,4 @@ Plánovaná rozšíření:
 * mobilní aplikace
 * LMS integrace
 
-Tyto funkce neimplementovat před dokončením verze 1.0.
+Tyto funkce neimplementovat před dokončením verze .0.
