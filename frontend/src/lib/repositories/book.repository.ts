@@ -1,4 +1,4 @@
-import type { Book } from '$lib/models/book';
+import type { Book, BookEditorData } from '$lib/models/book';
 
 export type BookFilterCriteria = {
 	authorId?: string;
@@ -13,4 +13,7 @@ export interface BookRepository {
 	search(query: string, limit?: number): Promise<Book[]>;
 	getById(id: string): Promise<Book>;
 	getBySlug(slug: string): Promise<Book>;
+	create(data: BookEditorData): Promise<Book>;
+	update(id: string, data: BookEditorData): Promise<Book>;
+	delete(id: string): Promise<void>;
 }

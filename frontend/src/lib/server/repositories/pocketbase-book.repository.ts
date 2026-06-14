@@ -1,7 +1,7 @@
 import type PocketBase from 'pocketbase';
 
 import { mapBookRecord, type BookRecord } from '$lib/mappers/book.mapper';
-import type { Book } from '$lib/models/book';
+import type { Book, BookEditorData } from '$lib/models/book';
 import type { BookFilterCriteria, BookRepository } from '$lib/repositories/book.repository';
 import { createServerPocketBaseClient } from '$lib/server/api/pocketbase.server';
 
@@ -82,4 +82,55 @@ export class PocketBaseBookRepository implements BookRepository {
 
 		return mapBookRecord(record);
 	}
+
+	async create(data: BookEditorData): Promise<Book> {
+		const record = await this.pocketBase
+			.collection<BookRecord>('books')
+			.create(toPocketBaseData(data));
+
+		return mapBookRecord(record);
+	}
+
+	async update(id: string, data: BookEditorData): Promise<Book> {
+		const record = await this.pocketBase
+			.collection<BookRecord>('books')
+			.update(id, toPocketBaseData(data));
+
+		return mapBookRecord(record);
+	}
+
+	async delete(id: string): Promise<void> {
+		await this.pocketBase.collection('books').delete(id);
+	}
+}
+
+function toPocketBaseData(data: BookEditorData) {
+	return {
+		title: data.title,
+		slug: data.slug,
+		original_title: data.originalTitle ?? '',
+		publication_year: data.publicationYear ?? null,
+		original_language: data.originalLanguage ?? '',
+		isbn: data.isbn ?? '',
+		author: data.authorId,
+		literary_period: data.literaryPeriodId ?? '',
+		genres: data.genreIds,
+		annotation: data.annotation ?? '',
+		content_summary: data.contentSummary ?? '',
+		interpretation: data.interpretation ?? '',
+		historical_context: data.historicalContext ?? '',
+		themes: data.themes ?? '',
+		motifs: data.motifs ?? '',
+		composition: data.composition ?? '',
+		narrator: data.narrator ?? '',
+		time_space: data.timeSpace ?? '',
+		language_features: data.languageFeatures ?? '',
+		literary_features: data.literaryFeatures ?? '',
+		importance: data.importance ?? '',
+		exam_notes: data.examNotes ?? '',
+		exam_questions: data.examQuestions ?? '',
+		connections: data.connections ?? '',
+		published: data.published,
+		published_at: data.publishedAt ?? ''
+	};
 }

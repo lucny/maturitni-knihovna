@@ -1,21 +1,22 @@
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
-ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\src\routes\proxy+layout.server.ts'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+svelte-kit\types\route_meta_data.json'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 ch file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
-ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
-ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
-m[39m [2m[console.error] [22mTypeError: loader is not a function
-    at load_node (http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=bebb3aa4:902:21)
-    at http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=bebb3aa4:2982:11
-    at Array.map (<anonymous>)
-    at _hydrate (http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=bebb3aa4:2975:36)
-    at async Module.start (http://localhost:5173/node_modules/@sveltejs/kit/src/runtime/client/client.js?v=bebb3aa4:399:3)
-Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
-Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
-Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
-Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
+uring server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
 Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
