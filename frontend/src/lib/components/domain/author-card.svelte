@@ -28,6 +28,10 @@
 				<img
 					src={author.portraitUrl}
 					alt={`Portret autora ${author.fullName}`}
+					loading="lazy"
+					decoding="async"
+					width="400"
+					height="300"
 					class="h-full w-full object-cover"
 				/>
 			{:else}

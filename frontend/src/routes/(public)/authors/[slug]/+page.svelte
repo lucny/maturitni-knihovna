@@ -40,6 +40,11 @@
 							<img
 								src={data.author.portraitUrl}
 								alt={`Portret autora ${data.author.fullName}`}
+								loading="eager"
+								decoding="async"
+								fetchpriority="high"
+								width="400"
+								height="300"
 								class="h-full w-full object-cover"
 							/>
 						{:else}

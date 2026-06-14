@@ -28,6 +28,10 @@
 				<img
 					src={book.coverUrl}
 					alt={`Obalka knihy ${book.title}`}
+					loading="lazy"
+					decoding="async"
+					width="400"
+					height="600"
 					class="h-full w-full object-cover"
 				/>
 			{:else}

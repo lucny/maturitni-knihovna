@@ -141,3 +141,37 @@ npm run lint
 npm run test
 npm run build
 ```
+
+## Produkcni build
+
+SvelteKit produkcni build pouziva `@sveltejs/adapter-node`, aby SSR aplikace mela
+stabilni Node runtime vhodny pro Docker. Produkcni frontend image se sestavuje z
+`frontend/Dockerfile` a spousti `node build/index.js` na portu `5173`.
+
+Lokalni vyvoj zustava beze zmen:
+
+```bash
+docker compose up -d
+```
+
+Velikost buildu ověřite po sestaveni frontendu:
+
+```bash
+cd frontend
+npm run build
+Get-ChildItem .svelte-kit/output -Recurse | Measure-Object Length -Sum
+```
+
+Produkci v Dockeru ověřite pres produkcni compose override:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml config
+docker compose -f docker-compose.yml -f docker-compose.prod.yml build frontend
+```
+
+Pro skutecne HTTPS spusteni nastavte produkcni domeny podle sekce Produkcni HTTPS
+a pote spustte:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
