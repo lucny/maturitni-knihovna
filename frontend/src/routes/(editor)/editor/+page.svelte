@@ -3,13 +3,30 @@
 
 	import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
+	type EditorStats = {
+		books: number;
+		authors: number;
+		literaryPeriods: number;
+		studyMaterials: number;
+	};
+
+	const fallbackStats: EditorStats = {
+		books: 0,
+		authors: 0,
+		literaryPeriods: 0,
+		studyMaterials: 0
+	};
+
+	let { data }: { data?: PageData } = $props();
+
+	const stats = $derived(data?.stats ?? fallbackStats);
+	const loadError = $derived(data?.loadError);
 
 	const statItems = $derived([
-		{ label: 'Knihy', value: data.stats.books },
-		{ label: 'Autori', value: data.stats.authors },
-		{ label: 'Literarni obdobi', value: data.stats.literaryPeriods },
-		{ label: 'Studijni materialy', value: data.stats.studyMaterials }
+		{ label: 'Knihy', value: stats.books },
+		{ label: 'Autori', value: stats.authors },
+		{ label: 'Literarni obdobi', value: stats.literaryPeriods },
+		{ label: 'Studijni materialy', value: stats.studyMaterials }
 	]);
 </script>
 
@@ -38,9 +55,9 @@
 		</a>
 	</div>
 
-	{#if data.loadError}
+	{#if loadError}
 		<div class="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
-			{data.loadError}
+			{loadError}
 		</div>
 	{/if}
 

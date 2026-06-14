@@ -1,4 +1,44 @@
 services:
+  reverse-proxy:
+    image: ${CADDY_IMAGE:-caddy:2-alpine}
+    container_name: ${COMPOSE_PROJECT_NAME:-maturitni-knihovna}-reverse-proxy
+    restart: unless-stopped
+    depends_on:
+      - frontend
+      - pocketbase
+    environment:
+      APP_DOMAIN: ${APP_DOMAIN:-localhost}
+      POCKETBASE_DOMAIN: ${POCKETBASE_DOMAIN:-pb.localhost}
+      REVERSE_PROXY_HTTP_PORT: ${REVERSE_PROXY_HTTP_PORT:-80}
+    ports:
+      - "${REVERSE_PROXY_HOST:-127.0.0.1}:${REVERSE_PROXY_HTTP_PORT:-80}:80"
+    volumes:
+      - ./docker/caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+  frontend:
+    image: ${FRONTEND_IMAGE:-node:22-alpine}
+    container_name: ${COMPOSE_PROJECT_NAME:-maturitni-knihovna}-frontend
+    restart: unless-stopped
+    working_dir: /app
+    command:
+      - sh
+      - -c
+      - npm install && npm run dev -- --host 0.0.0.0 --port 5173
+    environment:
+      PUBLIC_APP_URL: ${PUBLIC_APP_URL:-http://localhost}
+      PUBLIC_POCKETBASE_URL: ${PUBLIC_POCKETBASE_URL:-http://pb.localhost}
+      POCKETBASE_URL: ${POCKETBASE_URL:-http://pocketbase:8090}
+      ORIGIN: ${PUBLIC_APP_URL:-http://localhost}
+    expose:
+      - "5173"
+    volumes:
+      - ./frontend:/app
+      - frontend_node_modules:/app/node_modules
+    depends_on:
+      - pocketbase
+
   pocketbase:
     image: ${POCKETBASE_IMAGE:-ghcr.io/muchobien/pocketbase:latest}
     container_name: ${COMPOSE_PROJECT_NAME:-maturitni-knihovna}-pocketbase
@@ -10,6 +50,13 @@ services:
       - --migrationsDir=/pb/pb_migrations
     ports:
       - "${POCKETBASE_HOST:-127.0.0.1}:${POCKETBASE_PORT:-8090}:8090"
+    expose:
+      - "8090"
     volumes:
       - ./pocketbase/pb_data:/pb/pb_data
       - ./pocketbase/pb_migrations:/pb/pb_migrations
+
+volumes:
+  caddy_data:
+  caddy_config:
+  frontend_node_modules:

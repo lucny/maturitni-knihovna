@@ -3,7 +3,10 @@
 
 	import type { ActionData, PageData } from './$types';
 
-	let { data, form }: { data: PageData; form: ActionData | undefined } = $props();
+	let { data, form }: { data?: PageData; form: ActionData | undefined } = $props();
+
+	const materials = $derived(data?.materials ?? []);
+	const loadError = $derived(data?.loadError);
 </script>
 
 <svelte:head>
@@ -31,9 +34,9 @@
 		</a>
 	</div>
 
-	{#if data.loadError}
+	{#if loadError}
 		<div class="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
-			{data.loadError}
+			{loadError}
 		</div>
 	{/if}
 
@@ -43,7 +46,7 @@
 		</div>
 	{/if}
 
-	{#if data.materials.length > 0}
+	{#if materials.length > 0}
 		<div class="overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm">
 			<table class="w-full border-collapse text-left text-sm">
 				<thead class="bg-slate-100 text-slate-700">
@@ -56,7 +59,7 @@
 					</tr>
 				</thead>
 				<tbody class="divide-y divide-slate-200">
-					{#each data.materials as material (material.id)}
+					{#each materials as material (material.id)}
 						<tr class="odd:bg-white even:bg-slate-50">
 							<td class="px-4 py-3">
 								<a
@@ -108,7 +111,7 @@
 				</tbody>
 			</table>
 		</div>
-	{:else if !data.loadError}
+	{:else if !loadError}
 		<div class="rounded-lg border border-dashed border-slate-300 bg-white p-8">
 			<p class="text-sm font-medium text-slate-700">Zatim nejsou vytvorene zadne materialy.</p>
 			<p class="mt-2 text-sm leading-6 text-slate-600">

@@ -3,7 +3,10 @@
 
 	import type { PageData } from './$types';
 
-	let { data }: { data: PageData } = $props();
+	let { data }: { data?: PageData } = $props();
+
+	const materials = $derived(data?.materials ?? []);
+	const loadError = $derived(data?.loadError);
 </script>
 
 <svelte:head>
@@ -20,15 +23,15 @@
 		</p>
 	</div>
 
-	{#if data.loadError}
+	{#if loadError}
 		<div class="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
-			{data.loadError}
+			{loadError}
 		</div>
 	{/if}
 
-	{#if data.materials.length > 0}
+	{#if materials.length > 0}
 		<div class="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-			{#each data.materials as material (material.id)}
+			{#each materials as material (material.id)}
 				<article class="rounded-lg border border-slate-200 bg-white p-5 shadow-sm">
 					<div class="space-y-3">
 						<div class="space-y-1">
@@ -58,7 +61,7 @@
 				</article>
 			{/each}
 		</div>
-	{:else if !data.loadError}
+	{:else if !loadError}
 		<div class="rounded-lg border border-dashed border-slate-300 bg-white p-8">
 			<p class="text-sm font-medium text-slate-700">
 				Zatim nejsou publikovane zadne studijni materialy.

@@ -1,0 +1,21 @@
+{
+	auto_https off
+}
+
+http://{$APP_DOMAIN:localhost} {
+	reverse_proxy frontend:5173 {
+		header_up Host {host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+}
+
+http://{$POCKETBASE_DOMAIN:pb.localhost} {
+	reverse_proxy pocketbase:8090 {
+		header_up Host {host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Forwarded-Host {host}
+	}
+}

@@ -13,10 +13,653 @@ ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 svelte-kit\types\route_meta_data.json'
-ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
-ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 ch file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
 ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
-uring server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
+ENOENT: no such file or directory, stat 'D:\projects\maturitni-knihovna\frontend\.svelte-kit\types\route_meta_data.json'
+node:fs:442
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open 'D:\projects\maturitni-knihovna\frontend\src\routes\+layout.ts'
+    at Object.readFileSync (node:fs:442:20)
+    at createProxy (file:///D:/projects/maturitni-knihovna/frontend/node_modules/@sveltejs/kit/src/core/sync/write_types/index.js:535:31)
+    at ensureProxies (file:///D:/projects/maturitni-knihovna/frontend/node_modules/@sveltejs/kit/src/core/sync/write_types/index.js:525:23)
+    at process_node (file:///D:/projects/maturitni-knihovna/frontend/node_modules/@sveltejs/kit/src/core/sync/write_types/index.js:396:2)
+    at update_types (file:///D:/projects/maturitni-knihovna/frontend/node_modules/@sveltejs/kit/src/core/sync/write_types/index.js:334:7)
+    at write_types (file:///D:/projects/maturitni-knihovna/frontend/node_modules/@sveltejs/kit/src/core/sync/write_types/index.js:156:2)
+    at Module.update (file:///D:/projects/maturitni-knihovna/frontend/node_modules/@sveltejs/kit/src/core/sync/sync.js:66:2)
+    at file:///D:/projects/maturitni-knihovna/frontend/node_modules/@sveltejs/kit/src/exports/vite/dev/index.js:371:8
+    at FSWatcher.<anonymous> (file:///D:/projects/maturitni-knihovna/frontend/node_modules/@sveltejs/kit/src/exports/vite/dev/index.js:344:5)
+    at FSWatcher.emit (node:events:530:35) {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\projects\\maturitni-knihovna\\frontend\\src\\routes\\+layout.ts'
+}
+
+Node.js v22.14.0
+
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/layout/editor-shell.svelte:29:52
+    27 |  					Maturitni knihovna
+    28 |  				</a>
+    29 |  				<p class="text-sm text-slate-600">Editor: {user.displayName}</p>
+       |                                                      ^
+    30 |  			</div>
+    31 |  
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Editor_shell src/lib/components/layout/editor-shell.svelte:96:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:45:08[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at Editor_shell (http://localhost:5173/src/lib/components/layout/editor-shell.svelte:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:45:08[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'books')
+
+	in <unknown>
+	in editor-shell.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/routes/(editor)/editor/+page.svelte:9:38
+    7  |  
+    8  |  	const statItems = $derived([
+    9  |  		{ label: 'Knihy', value: data.stats.books },
+       |                                        ^
+    10 |  		{ label: 'Autori', value: data.stats.authors },
+    11 |  		{ label: 'Literarni obdobi', value: data.stats.literaryPeriods },
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > execute_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:369:11
+ > update_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:393:13
+ > Module.get node_modules/svelte/src/internal/client/runtime.js:679:3
+ > src/routes/(editor)/editor/+page.svelte:47:5
+ > node_modules/svelte/src/internal/client/dom/blocks/each.js:204:19
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > execute_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:369:11
+ > update_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:393:13
+
+[2m17:45:09[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at Editor_shell (http://127.0.0.1:5173/src/lib/components/layout/editor-shell.svelte:49:12)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:45:09[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of null (reading 'displayName')
+
+	in <unknown>
+	in editor-shell.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/layout/editor-shell.svelte:29:52
+    27 |  					Maturitni knihovna
+    28 |  				</a>
+    29 |  				<p class="text-sm text-slate-600">Editor: {user.displayName}</p>
+       |                                                      ^
+    30 |  			</div>
+    31 |  
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Editor_shell src/lib/components/layout/editor-shell.svelte:96:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:45:09[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at Editor_shell (http://localhost:5173/src/lib/components/layout/editor-shell.svelte:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:45:09[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'books')
+
+	in <unknown>
+	in editor-shell.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/routes/(editor)/editor/+page.svelte:9:38
+    7  |  
+    8  |  	const statItems = $derived([
+    9  |  		{ label: 'Knihy', value: data.stats.books },
+       |                                        ^
+    10 |  		{ label: 'Autori', value: data.stats.authors },
+    11 |  		{ label: 'Literarni obdobi', value: data.stats.literaryPeriods },
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > execute_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:369:11
+ > update_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:393:13
+ > Module.get node_modules/svelte/src/internal/client/runtime.js:679:3
+ > src/routes/(editor)/editor/+page.svelte:47:5
+ > node_modules/svelte/src/internal/client/dom/blocks/each.js:204:19
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > execute_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:369:11
+ > update_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:393:13
+
+[2m17:45:20[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at Editor_shell (http://127.0.0.1:5173/src/lib/components/layout/editor-shell.svelte:49:12)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:45:20[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of null (reading 'displayName')
+
+	in <unknown>
+	in editor-shell.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/layout/editor-shell.svelte:29:52
+    27 |  					Maturitni knihovna
+    28 |  				</a>
+    29 |  				<p class="text-sm text-slate-600">Editor: {user.displayName}</p>
+       |                                                      ^
+    30 |  			</div>
+    31 |  
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Editor_shell src/lib/components/layout/editor-shell.svelte:96:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:45:20[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at Editor_shell (http://localhost:5173/src/lib/components/layout/editor-shell.svelte:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:45:20[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'books')
+
+	in <unknown>
+	in editor-shell.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/routes/(editor)/editor/+page.svelte:9:38
+    7  |  
+    8  |  	const statItems = $derived([
+    9  |  		{ label: 'Knihy', value: data.stats.books },
+       |                                        ^
+    10 |  		{ label: 'Autori', value: data.stats.authors },
+    11 |  		{ label: 'Literarni obdobi', value: data.stats.literaryPeriods },
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > execute_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:369:11
+ > update_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:393:13
+ > Module.get node_modules/svelte/src/internal/client/runtime.js:679:3
+ > src/routes/(editor)/editor/+page.svelte:47:5
+ > node_modules/svelte/src/internal/client/dom/blocks/each.js:204:19
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > execute_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:369:11
+ > update_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:393:13
+
+[2m17:45:21[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at Editor_shell (http://127.0.0.1:5173/src/lib/components/layout/editor-shell.svelte:49:12)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://127.0.0.1:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://127.0.0.1:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:45:21[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of null (reading 'displayName')
+
+	in <unknown>
+	in editor-shell.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/layout/editor-shell.svelte:29:52
+    27 |  					Maturitni knihovna
+    28 |  				</a>
+    29 |  				<p class="text-sm text-slate-600">Editor: {user.displayName}</p>
+       |                                                      ^
+    30 |  			</div>
+    31 |  
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Editor_shell src/lib/components/layout/editor-shell.svelte:96:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:50:09[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at Editor_shell (http://localhost:5173/src/lib/components/layout/editor-shell.svelte:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:50:09[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'books')
+
+	in <unknown>
+	in editor-shell.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/routes/(editor)/editor/+page.svelte:9:38
+    7  |  
+    8  |  	const statItems = $derived([
+    9  |  		{ label: 'Knihy', value: data.stats.books },
+       |                                        ^
+    10 |  		{ label: 'Autori', value: data.stats.authors },
+    11 |  		{ label: 'Literarni obdobi', value: data.stats.literaryPeriods },
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > execute_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:369:11
+ > update_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:393:13
+ > Module.get node_modules/svelte/src/internal/client/runtime.js:679:3
+ > src/routes/(editor)/editor/+page.svelte:47:5
+ > node_modules/svelte/src/internal/client/dom/blocks/each.js:204:19
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > execute_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:369:11
+ > update_derived node_modules/svelte/src/internal/client/reactivity/deriveds.js:393:13
+
 Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
+Avoid calling `fetch` eagerly during server-side rendering — put your `fetch` calls inside `onMount` or a `load` function instead
+[2m17:55:30[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452476833:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:55:31[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'title')
+
+	in <unknown>
+	in book-editor-form.svelte
+	in +page.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/domain/book-editor-form.svelte:36:17
+    34 |  			id="title"
+    35 |  			name="title"
+    36 |  			value={values.title}
+       |                   ^
+    37 |  			maxlength="300"
+    38 |  			class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-950 focus:border-[var(--color-primar...
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Book_editor_form src/lib/components/domain/book-editor-form.svelte:571:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:55:31[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452476833:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:55:31[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'title')
+
+	in <unknown>
+	in book-editor-form.svelte
+	in +page.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/domain/book-editor-form.svelte:36:17
+    34 |  			id="title"
+    35 |  			name="title"
+    36 |  			value={values.title}
+       |                   ^
+    37 |  			maxlength="300"
+    38 |  			class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-950 focus:border-[var(--color-primar...
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Book_editor_form src/lib/components/domain/book-editor-form.svelte:571:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:55:43[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452476833:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:55:43[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'title')
+
+	in <unknown>
+	in book-editor-form.svelte
+	in +page.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/domain/book-editor-form.svelte:36:17
+    34 |  			id="title"
+    35 |  			name="title"
+    36 |  			value={values.title}
+       |                   ^
+    37 |  			maxlength="300"
+    38 |  			class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-950 focus:border-[var(--color-primar...
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Book_editor_form src/lib/components/domain/book-editor-form.svelte:571:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:56:09[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452476833:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:56:09[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'title')
+
+	in <unknown>
+	in book-editor-form.svelte
+	in +page.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/domain/book-editor-form.svelte:36:17
+    34 |  			id="title"
+    35 |  			name="title"
+    36 |  			value={values.title}
+       |                   ^
+    37 |  			maxlength="300"
+    38 |  			class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-950 focus:border-[var(--color-primar...
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Book_editor_form src/lib/components/domain/book-editor-form.svelte:571:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:59:12[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452628135:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:59:12[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'title')
+
+	in <unknown>
+	in book-editor-form.svelte
+	in +page.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/domain/book-editor-form.svelte:36:17
+    34 |  			id="title"
+    35 |  			name="title"
+    36 |  			value={values.title}
+       |                   ^
+    37 |  			maxlength="300"
+    38 |  			class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-950 focus:border-[var(--color-primar...
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Book_editor_form src/lib/components/domain/book-editor-form.svelte:571:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:59:22[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452628135:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:59:22[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'title')
+
+	in <unknown>
+	in book-editor-form.svelte
+	in +page.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/domain/book-editor-form.svelte:36:17
+    34 |  			id="title"
+    35 |  			name="title"
+    36 |  			value={values.title}
+       |                   ^
+    37 |  			maxlength="300"
+    38 |  			class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-950 focus:border-[var(--color-primar...
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Book_editor_form src/lib/components/domain/book-editor-form.svelte:571:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m17:59:23[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452628135:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m17:59:23[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'title')
+
+	in <unknown>
+	in book-editor-form.svelte
+	in +page.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/domain/book-editor-form.svelte:36:17
+    34 |  			id="title"
+    35 |  			name="title"
+    36 |  			value={values.title}
+       |                   ^
+    37 |  			maxlength="300"
+    38 |  			class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-950 focus:border-[var(--color-primar...
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Book_editor_form src/lib/components/domain/book-editor-form.svelte:571:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m18:00:17[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452628135:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m18:00:17[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of undefined (reading 'title')
+
+	in <unknown>
+	in book-editor-form.svelte
+	in +page.svelte
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/lib/components/domain/book-editor-form.svelte:36:17
+    34 |  			id="title"
+    35 |  			name="title"
+    36 |  			value={values.title}
+       |                   ^
+    37 |  			maxlength="300"
+    38 |  			class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-950 focus:border-[var(--color-primar...
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > Book_editor_form src/lib/components/domain/book-editor-form.svelte:571:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
+[2m18:00:40[22m [33m[1m[vite][22m[39m [33m[2m(client)[22m[39m [2m[console.warn] [22mFailed to hydrate:  TypeError: Illegal invocation
+    at get_next_sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4010:29)
+    at Module.sibling (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4068:34)
+    at _layout (http://localhost:5173/src/routes/(editor)/+layout.svelte?t=1781452628135:49:12)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:248:62
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+    at update_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4983:18)
+    at create_effect (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4307:4)
+    at branch (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4516:9)
+    at http://localhost:5173/node_modules/.vite/deps/index-client-DkEQ-j_s.js?v=bebb3aa4:245:13
+    at update_reaction (http://localhost:5173/node_modules/.vite/deps/runtime-D_ZNJ8lQ.js?v=bebb3aa4:4883:16)
+[2m18:00:40[22m [31m[1m[vite][22m[39m [31m[2m(client)[22m[39m [31m[Unhandled rejection] [1mTypeError[22m: Cannot read properties of null (reading 'displayName')
+
+	in <unknown>
+	in +layout.svelte
+	in +layout.svelte
+	in root.svelte
+	in undefined
+
+[39m > src/routes/(editor)/+layout.svelte:29:57
+    27 |  					Maturitni knihovna
+    28 |  				</a>
+    29 |  				<p class="text-sm text-slate-600">Editor: {data.user.displayName}</p>
+       |                                                           ^
+    30 |  			</div>
+    31 |  
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:391:3
+ > update_reaction node_modules/svelte/src/internal/client/runtime.js:256:15
+ > update_effect node_modules/svelte/src/internal/client/runtime.js:465:17
+ > create_effect node_modules/svelte/src/internal/client/reactivity/effects.js:137:3
+ > node_modules/svelte/src/internal/client/reactivity/effects.js:390:2
+ > flatten node_modules/svelte/src/internal/client/reactivity/async.js:56:2
+ > Module.template_effect node_modules/svelte/src/internal/client/reactivity/effects.js:389:1
+ > _layout src/routes/(editor)/+layout.svelte?t=1781452628135:96:4
+ > node_modules/svelte/src/internal/client/dev/hmr.js:51:49
+
