@@ -2,7 +2,7 @@ import type PocketBase from 'pocketbase';
 
 import { mapBookRecord, type BookRecord } from '$lib/mappers/book.mapper';
 import type { Book } from '$lib/models/book';
-import type { BookRepository } from '$lib/repositories/book.repository';
+import type { BookFilterCriteria, BookRepository } from '$lib/repositories/book.repository';
 import { createServerPocketBaseClient } from '$lib/server/api/pocketbase.server';
 
 export class PocketBaseBookRepository implements BookRepository {
@@ -20,6 +20,33 @@ export class PocketBaseBookRepository implements BookRepository {
 		const records = await this.pocketBase
 			.collection<BookRecord>('books')
 			.getFullList({ filter: 'published = true', sort: 'title' });
+
+		return records.map(mapBookRecord);
+	}
+
+	async getPublishedByFilters(filters: BookFilterCriteria): Promise<Book[]> {
+		const filterParts = ['published = true'];
+		const filterParams: Record<string, string> = {};
+
+		if (filters.authorId) {
+			filterParts.push('author = {:authorId}');
+			filterParams.authorId = filters.authorId;
+		}
+
+		if (filters.literaryPeriodId) {
+			filterParts.push('literary_period = {:literaryPeriodId}');
+			filterParams.literaryPeriodId = filters.literaryPeriodId;
+		}
+
+		if (filters.genreId) {
+			filterParts.push('genres ?= {:genreId}');
+			filterParams.genreId = filters.genreId;
+		}
+
+		const records = await this.pocketBase.collection<BookRecord>('books').getFullList({
+			filter: this.pocketBase.filter(filterParts.join(' && '), filterParams),
+			sort: 'title'
+		});
 
 		return records.map(mapBookRecord);
 	}

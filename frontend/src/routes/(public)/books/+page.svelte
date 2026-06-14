@@ -1,4 +1,5 @@
 <script lang="ts">
+	import BookFilterPanel from '$lib/components/domain/book-filter-panel.svelte';
 	import BookCard from '$lib/components/domain/book-card.svelte';
 
 	import type { PageData } from './$types';
@@ -23,18 +24,41 @@
 		<div class="mt-10 rounded-xl border border-red-200 bg-red-50 px-5 py-4 text-sm text-red-700">
 			{data.loadError}
 		</div>
-	{:else if data.books.length === 0}
-		<div class="mt-10 rounded-xl border border-slate-200 bg-white px-5 py-8 text-center shadow-sm">
-			<h2 class="text-xl font-medium text-[var(--color-secondary)]">Zadne knihy k zobrazeni</h2>
-			<p class="mt-3 text-sm leading-6 text-slate-600">
-				Katalog zatim neobsahuje zadne publikovane knihy.
-			</p>
-		</div>
 	{:else}
-		<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-			{#each data.books as book (book.id)}
-				<BookCard {book} />
-			{/each}
+		<div class="mt-10 grid gap-8 lg:grid-cols-[18rem_1fr] lg:items-start">
+			<BookFilterPanel
+				filterOptions={data.filterOptions}
+				filters={data.filters}
+				activeFilters={data.activeFilters}
+			/>
+
+			<div>
+				<div class="flex items-center justify-between gap-4">
+					<p class="text-sm leading-6 text-slate-600">
+						Zobrazeno {data.books.length}
+						{data.books.length === 1 ? 'kniha' : 'knih'}
+					</p>
+				</div>
+
+				{#if data.books.length === 0}
+					<div
+						class="mt-5 rounded-xl border border-slate-200 bg-white px-5 py-8 text-center shadow-sm"
+					>
+						<h2 class="text-xl font-medium text-[var(--color-secondary)]">
+							Zadne knihy k zobrazeni
+						</h2>
+						<p class="mt-3 text-sm leading-6 text-slate-600">
+							Pro zvolene filtry nebyly nalezeny zadne publikovane knihy.
+						</p>
+					</div>
+				{:else}
+					<div class="mt-5 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+						{#each data.books as book (book.id)}
+							<BookCard {book} />
+						{/each}
+					</div>
+				{/if}
+			</div>
 		</div>
 	{/if}
 </section>
